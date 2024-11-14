@@ -1,19 +1,23 @@
 import React from 'react'
 import "./styles.css"
-import Image from 'next/image'
 type Props = {}
 
 export default function Hero({ }: Props) {
   return (
-    <section className='h-screen w-full max-sm:px-4 hero overflow-hidden'>
+    <section className='h-screen w-full max-md:px-4 hero overflow-hidden'>
       <nav className='flex md:px-5 py-2 '>
-        <h1 className='md:text-4xl text-2xl text-[#1a0e4f] font-black font-sans'>संगठन</h1>
+        <h1 className='md:text-4xl text-2xl text-white md:text-[#1a0e4f] font-black font-sans'>संगठन</h1>
       </nav>
       <div className='h-[calc(100vh-100px)] flex justify-center items-center flex-col'>
         <div className='flex flex-col justify-center items-center md:gap-y-3'>
-          <h2 className='md:text-7xl text-2xl text-center font-sans md:font-bebas-neue hero-text font-extrabold'>
+          <h2 className='md:text-7xl max-md:hidden text-2xl text-center font-bebas-neue hero-text font-extrabold'>
             From Local Gatherings to Big Events</h2>
-          <h2 className='md:text-7xl text-2xl text-center font-sans md:font-bebas-neue hero-text font-extrabold'>
+          <h2 className='md:text-7xl md:hidden text-2xl text-center font-bebas-neue hero-text font-extrabold'>
+            From Local Gatherings </h2>
+          <h2 className='md:text-7xl md:hidden text-2xl text-center font-bebas-neue hero-text font-extrabold'>
+            to Big Events</h2>
+
+          <h2 className='md:text-7xl text-2xl text-center font-bebas-neue hero-text font-extrabold'>
             Find Your Next Experience
           </h2>
         </div>

@@ -76,3 +76,8 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+
+.gradient-bg{
+  background: linear-gradient(320deg,  #FF993B, #FF4DD2, #7C84F3, #FF4DD2, #FF993B);
+}

@@ -1,25 +1,27 @@
-import React from 'react'
 import { cn } from '@/lib/utils'
+import { CalendarClock, Heart, MapPin, Star, Ticket } from 'lucide-react'
 import Image from 'next/image'
-import { Heart, MapPin } from 'lucide-react'
 import Link from 'next/link'
+import React from 'react'
+import { format } from "date-fns"
 
 type Props = {
-    imageUrl: string,
-    className?: string
+    className?: string,
+    imageUrl: string
 }
 
-export default function PlaceCard({
-    imageUrl, className
+export default function MeetupCard({
+    className,
+    imageUrl
 }: Props) {
     return (
-        <div className={cn('bg-card hover:shadow-lg  transition-all rounded-sm shadow-md overflow-hidden', className)}>
-            <div className='cursor-pointer relative group h-[12rem] md:h-[13rem]'>
-                <Image className='w-full max-h-[12rem] md:max-h-[13rem] object-cover' src={imageUrl} height={300} width={300} alt='Event Image' />
+        <div className={cn("shadow-md overflow-hidden rounded-md min-h-[200px]", className)}>
+            <div className='group cursor-pointer relative'>
+                <Image className='max-h-[12rem] md:max-h-[13rem] object-cover' width={400} height={300} alt='meetup image' src={imageUrl} />
                 <div className='opacity-0 group-hover:bg-neutral-900/50 group-hover:opacity-100 transition-[opacity,colors] duration-700 flex absolute inset-0 text-white justify-center items-center h-full'>
                     <ul className='flex flex-row gap-2 flex-none'>
-                        <li title='Like' className='flex-none group/item h-8 w-8 flex justify-center items-center hover:shadow-md hover:shadow-cyan-200/40 p-2 transition-[shadow,transform] duration-300 hover:scale-110 rounded-full bg-neutral-300'>
-                            <Heart className='text-red-600 group-hover/item:fill-red-700 transition-colors w-full h-full' />
+                        <li title='Interested' className='flex-none group/item h-8 w-8 flex justify-center items-center hover:shadow-md hover:shadow-yellow-200/40 p-2 transition-[shadow,transform] duration-200 hover:scale-110 rounded-full bg-neutral-300'>
+                            <Star className='text-yellow-400 group-hover/item:fill-yellow-500 transition-colors w-full h-full' />
                         </li>
                         {/* <li className='flex-none h-8 w-8 flex justify-center items-center hover:shadow-md hover:shadow-cyan-200/40 p-2 transition-[shadow,transform] duration-300 hover:scale-110 rounded-full bg-neutral-300'><MoreHorizontal className='text-red-600 w-full h-full' /></li> */}
                     </ul>
@@ -31,13 +33,23 @@ export default function PlaceCard({
                 </Link>
                 <p className='font-sans text-xs md:text-sm'>Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid, delectus.</p>
                 <div className='flex gap-x-1 items-center'>
+                    <CalendarClock className='size-4 text-red-700' />
+                    <p className='font-semibold text-sm font-sans text-neutral-800/90'>
+                        {format(new Date(), "PPP")}
+                    </p>
+                </div>
+                <div className='flex gap-x-1 items-center'>
                     <MapPin className='size-4 text-red-700' />
                     <p className='font-semibold text-sm font-sans text-neutral-800/90'>
                         Lorem, ipsum.
                     </p>
                 </div>
                 <div className='flex gap-1 items-center'>
-                    <Heart className='size-4 text-red-700 fill-red-600' />
+                    <Star className='size-4 text-yellow-400 fill-yellow-500' />
+                    <p className='text-sm font-sans text-neutral-800/90'>{Math.floor(Math.random() * 1000)} interested</p>
+                </div>
+                <div title='Ticket' className='flex gap-1 items-center'>
+                    <Ticket className='size-4 text-rose-400 ' />
                     <p className='text-sm font-sans text-neutral-800/90'>{Math.floor(Math.random() * 1000)}</p>
                 </div>
                 <div className='flex mt-3'>
